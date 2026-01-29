@@ -19,14 +19,14 @@ class ViewController: UIViewController {
     
     @IBAction func operatorButton(_ sender: Any) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let plusAction =  UIAlertAction(title: "+", style: .default){_ in }
+        let plusAction =  UIAlertAction(title: "+", style: .default){_ in self.selectOperator.setTitle("+", for: .normal)}
         actionSheet.addAction(plusAction)
         present(actionSheet, animated: true)
-        let minusAction =  UIAlertAction(title: "-", style: .default){_ in }
+        let minusAction =  UIAlertAction(title: "-", style: .default){_ in self.selectOperator.setTitle("-", for: .normal)}
         actionSheet.addAction(minusAction)
-        let multiplyAction =  UIAlertAction(title: "*", style: .default){_ in }
+        let multiplyAction =  UIAlertAction(title: "*", style: .default){_ in self.selectOperator.setTitle("*", for: .normal)}
         actionSheet.addAction(multiplyAction)
-        let divideAction =  UIAlertAction(title: "/", style: .default){_ in }
+        let divideAction =  UIAlertAction(title: "/", style: .default){_ in self.selectOperator.setTitle("/", for: .normal)}
         actionSheet.addAction(divideAction)
         present(actionSheet, animated: true)
     }
