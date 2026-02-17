@@ -35,29 +35,93 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UITextField!
     
     @IBAction func resultButton(_ sender: Any) {
-        let op1 = Int(operand1TextField.text!)!
-        let op2 = Int(operand2TextField.text!)!
-        let op = selectOperator.title(for: .normal)
+        //let op1 = Int(operand1TextField.text!)!
+        //let op2 = Int(operand2TextField.text!)!
+        //let op = selectOperator.title(for: .normal)!
         
+        guard let op1 = operand1TextField.text, let a = Int(op1) else{
+            return
+        }
+        guard let op2 = operand2TextField.text, let b = Int(op2) else{
+            return
+        }
+        guard let op = selectOperator.title(for: .normal) else{
+            return
+        }
+        
+        /*
         if op == "+"{
-            let result = op1 + op2
+            let result = a + b
             resultLabel.text = "\(result)"
         }
         else if op == "-"{
-            let result = op1 - op2
+            let result = a - b
             resultLabel.text = "\(result)"
         }
         else if op == "*"{
-            let result = op1 * op2
+            let result = a * b
             resultLabel.text = "\(result)"
         }
         else if op == "/"{
-            let result = op1 / op2
+            let result = a / b
             resultLabel.text = "\(result)"
         }
         else{
             print("Invalid Operator")
         }
+         */
+        
+        var result:Int? = nil
+        switch(op){
+        case "+":
+            result = a + b
+        case "-":
+            result = a - b
+        case "*":
+            result = a * b
+        case "/":
+            result = a / b
+        default:
+            print("Invalid Operator")
+        }
+        
+        resultLabel.text = "\(result)"
+        
+        /*
+        if let op1 = operand1TextField.text{
+            if let op1 = Int(op1){
+                if let op2 = operand2TextField.text{
+                    if let op2 = Int(op2){
+                        if let op = selectOperator.title(for: .normal){
+                                if op == "+"{
+                                    let result = op1 + op2
+                                    resultLabel.text = "\(result)"
+                                }
+                                else if op == "-"{
+                                    let result = op1 - op2
+                                    resultLabel.text = "\(result)"
+                                }
+                                else if op == "*"{
+                                    let result = op1 * op2
+                                    resultLabel.text = "\(result)"
+                                }
+                                else if op == "/"{
+                                    let result = op1 / op2
+                                    resultLabel.text = "\(result)"
+                                }
+                                else{
+                                    print("Invalid Operator")
+                                }
+                            
+                        }
+                    }
+                }
+            }
+        }
+         */
+        
+        
+        
     }
     
     
